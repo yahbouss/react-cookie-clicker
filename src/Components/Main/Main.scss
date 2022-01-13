@@ -1,0 +1,16 @@
+.container{
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    .clicks{
+        font-size: 40px;
+    }
+    .cookie{
+        width: 200px;
+        cursor: pointer;
+        user-select: none;
+    }
+}
+
