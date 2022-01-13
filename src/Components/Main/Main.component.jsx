@@ -8,6 +8,20 @@ const Main = () => {
     const [shadowClickers, setshadowClickers] = useState(0)
 
     useEffect(() => {
+        let click = localStorage.getItem("cookie")
+        console.log(click)
+        if (click!==null){
+            setclicks(parseInt(click))
+            setshadowClickers(parseInt(localStorage.getItem("shadow")))
+        }
+    }, [])
+
+    useEffect(() => {
+            localStorage.setItem("cookie", clicks)
+            localStorage.setItem("shadow", shadowClickers)
+    }, [clicks])
+
+    useEffect(() => {
         setInterval(()=>{
             setstep(step*2)
             setTimeout(()=>setstep(1), 5000);
