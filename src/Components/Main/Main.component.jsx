@@ -9,13 +9,8 @@ const Main = () => {
     useEffect(() => {
         setInterval(()=>{
             setstep(step*2)
-            
-        }, 20) 
-
-        setTimeout(()=>{
-            setstep(0)
-        },5)
-
+            setTimeout(()=>setstep(1), 5000);
+        }, 20000);
     }, [step])
 
     const handleClick = ()=>{
