@@ -3,8 +3,9 @@ import cookie from "../../assets/cookie-svgrepo-com.svg"
 import "./Main.scss"
 
 const Main = () => {
-    const [click, setclick] = useState(0)
+    const [clicks, setclicks] = useState(0)
     const [step, setstep] = useState(1)
+    const [shadowClickers, setshadowClickers] = useState(0)
 
     useEffect(() => {
         setInterval(()=>{
@@ -14,14 +15,23 @@ const Main = () => {
     }, [step])
 
     const handleClick = ()=>{
-        setclick(click+step)
+        setclicks(clicks+step)
+    }
+
+    const handleBuyShadowClicker = () =>{
+        if (clicks >= 100){
+            setclicks(clicks-100)
+            setshadowClickers(shadowClickers+1)
+        }
     }
 
     return (
         <div className='container'>
-            <p className='clicks'>{click}</p>
+            <p className='clicks'>{clicks}</p>
             <p className='clicks'>step: {step}</p>
+            <p className='clicks'>shadowClickers bought: {shadowClickers}</p>
             <img onClick={handleClick} className='cookie' src={cookie} alt="cookie"/>
+            <button onClick={handleBuyShadowClicker}>buy shadowClickers</button>
         </div>
     )
 }
